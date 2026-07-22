@@ -1,0 +1,166 @@
+.detail-container {
+  max-width: 850px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.back-link {
+  margin-bottom: 1.5rem;
+}
+
+.back-link a {
+  color: #047857;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.back-link a:hover {
+  transform: translateX(-4px);
+  color: #064e3b;
+}
+
+.course-detail-card {
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  box-shadow: 0 20px 25px -5px rgba(2, 44, 34, 0.08), 0 8px 10px -6px rgba(2, 44, 34, 0.03);
+  border: 1px solid #e2e8f0;
+}
+
+.header-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #ecfdf5;
+}
+
+.header-banner h2 {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #064e3b;
+  letter-spacing: -0.02em;
+}
+
+.code-badge {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #064e3b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+}
+
+.meta-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background-color: #f4f8f5;
+  border-radius: 0.75rem;
+  border: 1px solid #d1fae5;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.badge {
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-passed { background-color: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.badge-failed { background-color: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
+.badge-pending { background-color: #fef3c7; color: #b45309; border: 1px solid #fcd34d; }
+
+.description-box {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.description-box h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #064e3b;
+}
+
+.description-box p {
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-enroll {
+  background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.35);
+}
+
+.btn-enroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(4, 120, 87, 0.45);
+}
+
+.btn-unenroll {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.3);
+}
+
+.btn-unenroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.not-found-card {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+.not-found-card h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.5rem;
+  color: #064e3b;
+  margin-bottom: 0.5rem;
+}

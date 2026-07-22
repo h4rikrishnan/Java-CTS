@@ -1,0 +1,58 @@
+<div 
+  *ngIf="isEnrolled$ | async as isEnrolled; else defaultCard"
+  class="course-card" 
+  [appHighlight]="highlightColor"
+  [ngClass]="cardClasses" 
+  [class.card--enrolled]="isEnrolled"
+  [ngStyle]="{ 'border-left': '6px solid ' + getBorderColor() }">
+  
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+    
+    <div [ngSwitch]="course.gradeStatus" class="status-badge-container">
+      <span *ngSwitchCase="'passed'" class="badge badge-passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge-failed">Failed</span>
+      <span *ngSwitchCase="'pending'" class="badge badge-pending">Pending</span>
+      <span *ngSwitchDefault class="badge badge-pending">N/A</span>
+    </div>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+
+  <p class="course-credits">
+    <strong>Credits:</strong> {{ course.credits | creditLabel }}
+  </p>
+
+  <div *ngIf="isExpanded" class="expanded-details">
+    <p class="details-text">Course ID: #{{ course.id }}</p>
+    <p class="details-text">NgRx Enrolled Status: {{ isEnrolled ? 'Enrolled in Store' : 'Not Enrolled' }}</p>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn btn-secondary" (click)="toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    
+    <!-- Step 100: Button text toggles using async pipe from NgRx store selector -->
+    <button class="btn btn-primary" (click)="onEnroll(isEnrolled)">
+      {{ isEnrolled ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>
+
+<ng-template #defaultCard>
+  <div 
+    class="course-card" 
+    [appHighlight]="highlightColor"
+    [ngClass]="cardClasses"
+    [ngStyle]="{ 'border-left': '6px solid ' + getBorderColor() }">
+    
+    <div class="card-header">
+      <span class="course-code">{{ course.code }}</span>
+    </div>
+    <h3 class="course-title">{{ course.name }}</h3>
+    <div class="card-actions">
+      <button class="btn btn-primary" (click)="onEnroll(false)">Enroll</button>
+    </div>
+  </div>
+</ng-template>

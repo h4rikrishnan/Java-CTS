@@ -1,0 +1,19 @@
+<div class="notification-box">
+  <div class="notification-header">
+    <h4>🔔 Scoped Notifications (Component-Level DI)</h4>
+    <div class="actions">
+      <button (click)="addAlert()" class="btn btn-sm btn-info">+ Add Alert</button>
+      <button (click)="clearAlerts()" class="btn btn-sm btn-clear">Clear</button>
+    </div>
+  </div>
+  
+  <ul *ngIf="notifications.length > 0; else noNotifs" class="notif-list">
+    <li *ngFor="let notif of notifications" class="notif-item">
+      {{ notif }}
+    </li>
+  </ul>
+
+  <ng-template #noNotifs>
+    <p class="empty-notif">No notifications for this scoped component instance.</p>
+  </ng-template>
+</div>

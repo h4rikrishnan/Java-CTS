@@ -1,0 +1,155 @@
+.course-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(4, 120, 87, 0.04), 0 2px 4px -2px rgba(4, 120, 87, 0.02);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(2, 44, 34, 0.12), 0 8px 10px -6px rgba(2, 44, 34, 0.04);
+  border-color: #a7f3d0;
+}
+
+/* Dynamic CSS class applied when course is enrolled */
+.card--enrolled {
+  background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%);
+  border-right: 5px solid #059669;
+}
+
+/* Dynamic CSS class applied when credits >= 4 */
+.card--full {
+  box-shadow: 0 10px 20px rgba(4, 120, 87, 0.12);
+}
+
+/* Dynamic CSS class applied when details are expanded */
+.expanded {
+  padding-bottom: 1.75rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.course-code {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #064e3b;
+  background-color: #d1fae5;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.03em;
+  border: 1px solid #a7f3d0;
+}
+
+.badge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-passed {
+  background-color: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.badge-failed {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.badge-pending {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+}
+
+.course-title {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #064e3b;
+  line-height: 1.35;
+}
+
+.course-credits {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.expanded-details {
+  background-color: #ecfdf5;
+  padding: 0.875rem;
+  border-radius: 0.75rem;
+  border: 1px dashed #a7f3d0;
+  font-size: 0.85rem;
+  color: #064e3b;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.expanded-details p {
+  margin: 0.25rem 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.625rem;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.625rem;
+  border: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%);
+  color: #ffffff;
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 16px rgba(4, 120, 87, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #f1f5f9;
+  color: #064e3b;
+  border: 1px solid #cbd5e1;
+}
+
+.btn-secondary:hover {
+  background-color: #ecfdf5;
+  color: #022c22;
+  border-color: #a7f3d0;
+}

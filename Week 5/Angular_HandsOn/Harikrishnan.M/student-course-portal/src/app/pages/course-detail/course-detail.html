@@ -1,0 +1,36 @@
+<div class="detail-container">
+  <div class="back-link">
+    <a routerLink="/courses">← Back to Course Listing</a>
+  </div>
+
+  <div *ngIf="course; else notFound" class="course-detail-card">
+    <div class="header-banner">
+      <span class="code-badge">{{ course.code }}</span>
+      <h2>{{ course.name }}</h2>
+    </div>
+
+    <div class="meta-row">
+      <span><strong>Credits:</strong> {{ course.credits | creditLabel }}</span>
+      <span><strong>Status:</strong> <span class="badge" [ngClass]="'badge-' + course.gradeStatus">{{ course.gradeStatus | titlecase }}</span></span>
+      <span><strong>Instructor:</strong> {{ course.instructor || 'Staff' }}</span>
+    </div>
+
+    <div class="description-box">
+      <h4>Course Overview</h4>
+      <p>{{ course.description || 'Comprehensive course covering key domain concepts, practical exercises, and projects.' }}</p>
+    </div>
+
+    <div class="detail-actions">
+      <button (click)="toggleEnrollment()" class="btn" [ngClass]="isEnrolled ? 'btn-unenroll' : 'btn-enroll'">
+        {{ isEnrolled ? 'Unenroll from Course' : 'Enroll in Course' }}
+      </button>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="not-found-card">
+      <h3>Course Not Found</h3>
+      <p>No course matching ID #{{ courseId }} was located in the catalog.</p>
+    </div>
+  </ng-template>
+</div>

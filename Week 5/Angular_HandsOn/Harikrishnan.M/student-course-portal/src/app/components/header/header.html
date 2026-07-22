@@ -1,0 +1,21 @@
+<nav class="portal-header">
+  <div class="brand">
+    <div class="logo-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24">
+        <path d="M 256 128 L 416 208 L 256 288 L 96 208 Z" fill="#ffffff"/>
+        <path d="M 160 248 V 312 C 160 344, 352 344, 352 312 V 248" fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round"/>
+        <path d="M 376 228 V 318" fill="none" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="376" cy="330" r="14" fill="#fbbf24"/>
+        <circle cx="256" cy="208" r="14" fill="#fbbf24"/>
+      </svg>
+    </div>
+    <span class="portal-title">Student Course Portal</span>
+  </div>
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+    <li><a routerLink="/courses" routerLinkActive="active">Courses</a></li>
+    <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+    <li><a routerLink="/enroll" routerLinkActive="active">Enroll (TD)</a></li>
+    <li><a routerLink="/enroll-reactive" routerLinkActive="active">Enroll (Reactive)</a></li>
+  </ul>
+</nav>

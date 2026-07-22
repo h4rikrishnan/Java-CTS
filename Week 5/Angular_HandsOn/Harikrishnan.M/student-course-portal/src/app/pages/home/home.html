@@ -1,0 +1,54 @@
+<div class="home-container">
+  <!-- Step 11: String interpolation -->
+  <header class="home-header">
+    <h1>Welcome to {{ portalName }}</h1>
+    <p class="description">
+      Manage your course registrations, view academic progress, and stay updated with campus announcements.
+    </p>
+  </header>
+
+  <!-- Step 8: Stats Row -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <span class="stat-value">{{ availableCoursesCount }}</span>
+      <span class="stat-label">Courses Available</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ enrolledCount }}</span>
+      <span class="stat-label">Enrolled</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value">{{ gpa }}</span>
+      <span class="stat-label">GPA</span>
+    </div>
+  </div>
+
+  <!-- Interactive Data Binding Section -->
+  <div class="binding-demo-card">
+    <h2>Interactive Portal Controls</h2>
+    
+    <div class="control-group">
+      <!-- Step 12: Property binding [disabled]='!isPortalActive' & Step 13: Event binding (click)='onEnrollClick()' -->
+      <button 
+        class="btn btn-enroll" 
+        [disabled]="!isPortalActive" 
+        (click)="onEnrollClick()">
+        Enroll Now
+      </button>
+      <p *ngIf="message" class="enroll-message">{{ message }}</p>
+    </div>
+
+    <div class="control-group">
+      <label for="search-input">Course Search (Two-Way Binding):</label>
+      <!-- Step 14: Two-Way binding [(ngModel)]='searchTerm' -->
+      <input 
+        id="search-input"
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Type course name or code..."
+        class="search-input"
+      />
+      <p class="search-live-result">Searching for: <strong>{{ searchTerm }}</strong></p>
+    </div>
+  </div>
+</div>

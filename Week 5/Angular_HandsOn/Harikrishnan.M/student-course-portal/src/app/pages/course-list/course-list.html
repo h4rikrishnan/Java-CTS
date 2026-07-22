@@ -1,0 +1,60 @@
+<div class="course-list-container">
+  <h2>Available Courses (NgRx Store Driven)</h2>
+
+  <app-course-summary-widget></app-course-summary-widget>
+
+  <app-notification></app-notification>
+
+  <div class="search-filter-bar">
+    <input 
+      type="text" 
+      [(ngModel)]="searchTerm" 
+      (ngModelChange)="onSearchChange()" 
+      placeholder="Search courses by title or code..." 
+      class="search-bar-input"
+    />
+    <span *ngIf="searchTerm" class="query-param-badge">
+      Query Param: ?search={{ searchTerm }}
+    </span>
+  </div>
+
+  <!-- Error display from NgRx store -->
+  <div *ngIf="error$ | async as error" class="error-alert">
+    ⚠️ {{ error }}
+  </div>
+
+  <!-- Loading indicator from NgRx store -->
+  <div *ngIf="isLoading$ | async" class="loading-spinner">
+    <p>⏳ Dispatched loadCourses action — loading state from NgRx store...</p>
+  </div>
+
+  <!-- Step 96: Render courses using async pipe from courses$ Observable -->
+  <div *ngIf="courses$ | async as courses">
+    <div *ngIf="!(isLoading$ | async)">
+      <div *ngIf="courses.length > 0; else noCourses" class="course-grid">
+        <div *ngFor="let course of courses; let i = index; trackBy: trackByCourseId" class="card-wrapper">
+          <app-course-card
+            [course]="course"
+            [highlightColor]="'#fef08a'"
+            (enrollRequested)="onEnroll($event)">
+          </app-course-card>
+          <div class="view-detail-bar">
+            <button (click)="navigateToDetail(course.id)" class="btn-detail-link">
+              🔍 View Full Details (#{{ course.id }})
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noCourses>
+    <div class="empty-state">
+      <p>No courses available in NgRx store.</p>
+    </div>
+  </ng-template>
+
+  <div *ngIf="selectedCourseId" class="selected-course-banner">
+    <p>Selected course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+</div>

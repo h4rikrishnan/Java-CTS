@@ -1,0 +1,117 @@
+<div class="form-container">
+  <h2>Student Enrollment Request (Template-Driven Form)</h2>
+
+  <!-- Step 46: Success message alert -->
+  <div *ngIf="submitted" class="success-alert">
+    🎉 Enrollment request submitted successfully!
+  </div>
+
+  <!-- Step 39: Template-Driven form with #enrollForm="ngForm" -->
+  <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" novalidate class="enrollment-form">
+    
+    <!-- Student Name Field -->
+    <div class="form-group">
+      <label for="studentName">Student Name *</label>
+      <!-- Step 43 & 44: required, minlength="3", #nameCtrl="ngModel" -->
+      <input 
+        type="text" 
+        id="studentName" 
+        name="studentName" 
+        [(ngModel)]="studentName" 
+        required 
+        minlength="3" 
+        #nameCtrl="ngModel" 
+        class="form-control"
+        placeholder="Enter your full name"
+      />
+      <!-- Step 44: Conditional error messages -->
+      <div *ngIf="nameCtrl.touched && nameCtrl.invalid" class="error-messages">
+        <span *ngIf="nameCtrl.errors?.['required']" class="error-text">Name is required.</span>
+        <span *ngIf="nameCtrl.errors?.['minlength']" class="error-text">Name must be at least 3 characters.</span>
+      </div>
+    </div>
+
+    <!-- Student Email Field -->
+    <div class="form-group">
+      <label for="studentEmail">Student Email *</label>
+      <!-- Step 43 & 44: required, email, #emailCtrl="ngModel" -->
+      <input 
+        type="email" 
+        id="studentEmail" 
+        name="studentEmail" 
+        [(ngModel)]="studentEmail" 
+        required 
+        email 
+        #emailCtrl="ngModel" 
+        class="form-control"
+        placeholder="student@university.edu"
+      />
+      <div *ngIf="emailCtrl.touched && emailCtrl.invalid" class="error-messages">
+        <span *ngIf="emailCtrl.errors?.['required']" class="error-text">Email is required.</span>
+        <span *ngIf="emailCtrl.errors?.['email']" class="error-text">Please enter a valid email address.</span>
+      </div>
+    </div>
+
+    <!-- Course ID Field -->
+    <div class="form-group">
+      <label for="courseId">Course ID *</label>
+      <!-- Step 43: required, #courseCtrl="ngModel" -->
+      <input 
+        type="number" 
+        id="courseId" 
+        name="courseId" 
+        [(ngModel)]="courseId" 
+        required 
+        #courseCtrl="ngModel" 
+        class="form-control"
+        placeholder="e.g. 101"
+      />
+      <div *ngIf="courseCtrl.touched && courseCtrl.invalid" class="error-messages">
+        <span *ngIf="courseCtrl.errors?.['required']" class="error-text">Course ID is required.</span>
+      </div>
+    </div>
+
+    <!-- Preferred Semester Field -->
+    <div class="form-group">
+      <label for="preferredSemester">Preferred Semester</label>
+      <select 
+        id="preferredSemester" 
+        name="preferredSemester" 
+        [(ngModel)]="preferredSemester" 
+        class="form-control">
+        <option value="Odd">Odd Semester</option>
+        <option value="Even">Even Semester</option>
+      </select>
+    </div>
+
+    <!-- Agree to Terms Checkbox -->
+    <div class="form-group checkbox-group">
+      <label>
+        <input 
+          type="checkbox" 
+          name="agreeToTerms" 
+          [(ngModel)]="agreeToTerms" 
+          required 
+          #termsCtrl="ngModel"
+        />
+        I agree to the university enrollment terms and conditions *
+      </label>
+      <div *ngIf="termsCtrl.touched && termsCtrl.invalid" class="error-messages">
+        <span *ngIf="termsCtrl.errors?.['required']" class="error-text">You must agree to terms to proceed.</span>
+      </div>
+    </div>
+
+    <!-- Form Action Buttons -->
+    <div class="form-actions">
+      <!-- Step 41: Submit button disabled when form is invalid -->
+      <button type="submit" [disabled]="enrollForm.invalid" class="btn btn-submit">
+        Submit Request
+      </button>
+      
+      <!-- Step 47: Reset button -->
+      <button type="button" (click)="onReset(enrollForm)" class="btn btn-reset">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
